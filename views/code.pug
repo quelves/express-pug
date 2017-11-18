@@ -1,0 +1,43 @@
+extends preview.pug
+
+
+
+block codepreview
+    :markdown-it(linkify langPrefix='highlight-')
+        ```js
+        h2 Unbuffered Code
+        - for (var x = 0; x < 3; x++)
+        li item
+        - list = ["Uno", "Dos", "Tres","Cuatro", "Cinco", "Seis"]
+        each item in list
+            li= item
+
+        h2 Buffered Code
+        p
+            = 'This code is <escaped>!'
+        p= 'This code is' + ' <escaped>!'
+
+        h2 Unescaped Buffered Code
+        p
+            != 'This code is <strong>not</strong> escaped!'
+        p!= 'This code is' + ' <strong>not</strong> escaped!'
+        var codeBlocks;
+        ```
+block coderun
+    h2 Unbuffered Code
+    - for (var x = 0; x < 3; x++)
+    li item
+    - list = ["Uno", "Dos", "Tres","Cuatro", "Cinco", "Seis"]
+    each item in list
+        li= item
+
+    h2 Buffered Code
+    p
+        = 'This code is <escaped>!'
+    p= 'This code is' + ' <escaped>!'
+
+    h2 Unescaped Buffered Code
+    p
+        != 'This code is <strong>not</strong> escaped!'
+    p!= 'This code is' + ' <strong>not</strong> escaped!'
+    var codeBlocks;

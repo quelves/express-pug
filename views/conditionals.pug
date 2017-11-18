@@ -1,0 +1,45 @@
+extends preview.pug
+block codepreview
+    :markdown-it(linkify langPrefix='highlight-')
+        ```js
+        h2 If ... Else
+        - var user = { name:'quelves', description: 'foo bar baz' }
+        - var authorised = false
+        #user
+            if user.description
+                h3.green Description
+                p.description= user.description
+            else if authorised
+                h3.blue Description
+                p.description.
+                    User has no description,
+                    why not add one...
+            else
+                h3.red Description
+                p.description User has no description
+
+        h2 Unless
+        unless user.isAnonymous
+            p You're logged in as #{user.name}
+        ```
+block coderun
+    h2 If ... Else
+    - var user = { name:'quelves', description: 'foo bar baz' }
+    - var authorised = false
+    #user
+        if user.description
+            h3.green Description
+            p.description= user.description
+        else if authorised
+            h3.blue Description
+            p.description.
+                User has no description,
+                why not add one...
+        else
+            h3.red Description
+            p.description User has no description
+
+    h2 Unless
+    unless user.isAnonymous
+        p You're logged in as #{user.name}
+

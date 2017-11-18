@@ -1,0 +1,72 @@
+extends preview.pug
+
+block codepreview
+    :markdown-it(linkify langPrefix='highlight-')
+        ```js
+        h2 Markdown Filter
+            :markdown-it(linkify langPrefix='highlight-')
+                # Markdown Title
+                ## Markdown SubTitle
+
+                Markdown document with http://links.com and
+
+                js code
+                ```js
+                var codeBlocks;
+                ```
+
+                **Esto es negrita**
+
+                __Esto también es negrita__
+
+                *Esto es cursiva*
+
+                _Esto también es cursiva_
+
+                ***Esto es negrita y cursiva***
+
+                ___Esto también es negrita y cursiva___
+
+            h2 Inline Sixtax
+            p
+                :markdown-it(inline) **BOLD TEXT**
+
+            p.
+                In the midst of a large amount of plain
+                text, suddenly a wild #[:markdown-it(inline) *Markdown*]
+                appeared.
+        ```
+
+block coderun
+    h2 Markdown Filter
+    :markdown-it(linkify langPrefix='highlight-')
+        # Markdown Title
+        ## Markdown SubTitle
+
+        Markdown document with http://links.com and
+
+        js code
+        ```js
+        var codeBlocks;
+        ```
+
+        **Esto es negrita**
+
+        __Esto también es negrita__
+
+        *Esto es cursiva*
+
+        _Esto también es cursiva_
+
+        ***Esto es negrita y cursiva***
+
+        ___Esto también es negrita y cursiva___
+
+    h2 Inline Sixtax
+    p
+        :markdown-it(inline) **BOLD TEXT**
+
+    p.
+        In the midst of a large amount of plain
+        text, suddenly a wild #[:markdown-it(inline) *Markdown*]
+        appeared.
